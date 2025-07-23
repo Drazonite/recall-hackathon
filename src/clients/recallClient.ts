@@ -38,7 +38,6 @@ export class RecallClient {
   async exchange(exchangeData: TradeData) {
     const headers = {
       Authorization: `Bearer ${this.apiKey}`,
-      "Content-Type": "application/json",
     };
 
     const data = await this.fetchWithRetry(async () => await fetch(
