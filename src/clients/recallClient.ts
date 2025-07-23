@@ -53,7 +53,7 @@ export class RecallClient {
 
     elizaLogger.info("Exchange Response:", data);
 
-    return data.success;
+    return data;
   }
 
   async getPrice(tokenAddress: string) {
