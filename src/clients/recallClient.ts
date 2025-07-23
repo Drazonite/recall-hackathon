@@ -40,6 +40,8 @@ export class RecallClient {
       Authorization: `Bearer ${this.apiKey}`,
     };
 
+    console.log("Here is the exchangeData", exchangeData)
+
     const data = await this.fetchWithRetry(async () => await fetch(
       `${process.env.RECALL_URL}/api/trade/execute`,
       {
@@ -72,7 +74,6 @@ export class RecallClient {
   }
 
   async getWalletDetails() {
-    console.log("getWalletDetails hit!", this.apiKey);
     const response = await fetch(
       `${process.env.RECALL_URL}/api/agent/portfolio`,
       {
