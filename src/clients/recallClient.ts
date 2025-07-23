@@ -19,7 +19,8 @@ export class RecallClient {
       try {
         const response = await fn();
         if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
+          console.log("Here is the response:", await response.json())
+          //throw new Error(`HTTP error! Status: ${response.status}`);
         }
         return await response.json(); // or response.text(), etc.
       } catch (error) {
@@ -29,7 +30,8 @@ export class RecallClient {
           delay *= 2; // exponential backoff
         } else {
           console.error('All retries failed.');
-          throw error;
+          return 'failure'
+          //throw error;
         }
       }
     }
@@ -38,6 +40,7 @@ export class RecallClient {
   async exchange(exchangeData: TradeData) {
     const headers = {
       Authorization: `Bearer ${this.apiKey}`,
+      'Content-Type': 'application/json'
     };
 
     console.log("Here is the exchangeData", exchangeData)
@@ -53,7 +56,7 @@ export class RecallClient {
 
     elizaLogger.info("Exchange Response:", data);
 
-    return data;
+    return data.success;
   }
 
   async getPrice(tokenAddress: string) {

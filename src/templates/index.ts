@@ -6,14 +6,16 @@ Here are your wallet details (balance), amount of cryptocurrency you own, as wel
 
 Follow the instructions here:
 1) Determine an aggressive target percentage allocation between the tokens in your portfolio.  You may use any of the tokens in your current portfolio along with
-   the tokens below
+   the tokens below:
 
-    - LINK = 0x514910771af9ca656af840dff83e8264ecf986ca
-    - WETH = 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
+    - ETH = 0x0000000000000000000000000000000000000000
+    - SOL = So11111111111111111111111111111111111111112
 
-2) Calculate the USD value of each of the tokens in your portfolio from the information above.  Assume that your current token allocation is 0 if the token
+    For ETH transfers, use the ETH address here - Do not use any other address.
+
+2) Calculate the USD value of each of the tokens in your portfolio from the information above. Assume that your current token allocation is 0 if the token
    does not appear anywhere above.  
-3) Calculate the USD ratios between each token in your portfolio
+3) Calculate the USD ratios between each token in your portfolio.
 4) If all tokens are perfectly in balance, do not do anything.
 5) Write a series of swap instructions so as to try come as close as possible to achieving the target USD balance in your portfolio. Each instruction **must** contain two token addresses:
     - an address to buy the next token.
@@ -34,7 +36,7 @@ Output your response in a json. **Only output the json, nothing else**:
 
 Where:
 1) swapInstructions: A list of exchange instructions containing specific details of the action - including the amounts (max 3 decimal places) to be exchanged.  Example would be "Exchange 3500 USDC at address 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174 on chain evm for 1 WETH at address 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 on chain evm".
-   Be sure to include the addresses of BOTH tokens 
+   Be sure to include the addresses of BOTH tokens, and the amount of the token (eg, x amount of WETH/USDC/etc.). Do not include USD values.
 2) reasons:  A list reasons on why the text was chosen.  Each reason should correspond to the swap instruction at the same index.
 3) targetAllocation: A string representing the target allocation of the portfolio, e.g. "USDC: 50%, WETH: 30%, LINK: 20%"
 

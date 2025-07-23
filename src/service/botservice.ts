@@ -97,6 +97,8 @@ export class BotService extends Service {
       template: tradeTemplate,
     });
 
+    console.log("Here is the trade template:", prompt)
+
     const llmResponse = await this.runtime.useModel(ModelType.TEXT_LARGE, {
       prompt,
     });

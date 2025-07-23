@@ -24,7 +24,7 @@ export const recallProvider: Provider = {
         ====================================================================================
         Here is the token symbol: ${tokenData.symbol}
         Here is the token address: ${tokenData.token}
-        Here is the amount you own (in USD): ${tokenData.value}
+        Here is the amount of tokens you own: ${tokenData.amount} (USDC value: ${tokenData.value})
         Here is the current price of the token (In USD): ${tokenData.price}
         Here is the chain: ${tokenData.chain}
         `;
